@@ -41,5 +41,5 @@
   
   [Find me on Github](https://github.com/GitOffMyFarm)  
   or Email me at freemanjj1992@gmail.com  
-  [Launched version of the application can be found here]()
+  [Launched version of the application can be found here](https://mysterious-bastion-22749.herokuapp.com/)
  
