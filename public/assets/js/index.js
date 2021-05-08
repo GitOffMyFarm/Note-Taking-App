@@ -113,12 +113,9 @@ const handleNewNoteView = (e) => {
   renderActiveNote();
 };
 
-const checkIfReadonly = () => {
-  return noteTitle.readOnly || noteText.readOnly;
-};
 
 const handleRenderSaveBtn = () => {
-  if (!noteTitle.value.trim() || !noteText.value.trim() || checkIfReadonly()) {
+  if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
   } else {
     show(saveNoteBtn);
@@ -176,7 +173,10 @@ const renderNoteList = async (notes) => {
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
-  saveNoteBtn.addEventListener('click', handleNoteSave);
+  saveNoteBtn.addEventListener('click', function() {
+    handleNoteSave();
+    getAndRenderNotes();
+  });
   newNoteBtn.addEventListener('click', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
